@@ -155,15 +155,12 @@ function fetchLocalData() {
 
 async function setupAudioDevices() {
   let audioDevs = await navigator.mediaDevices.enumerateDevices();
-  let devId = '';
   for (let devInfo of audioDevs) {
     if (devInfo.kind === 'audiooutput' && devInfo.deviceId === 'default') {
-      devId = devInfo.deviceId;
+      for ( let i = 0; i < audioElements.length; i++) {
+        let mediaElem = <HTMLMediaElement>audioElements[i];
+        await mediaElem.setSinkId(devInfo.deviceId);
+      }
     }
-  }
-  console.log(devId);
-  console.log(audioElements);
-  for ( let element of audioElements) {
-    element.setSinkId(devId);
   }
 }

@@ -204,26 +204,34 @@ function fetchLocalData() {
 }
 function setupAudioDevices() {
     return __awaiter(this, void 0, void 0, function () {
-        var audioDevs, devId, _i, audioDevs_1, devInfo, _a, audioElements_1, element;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        var audioDevs, _i, audioDevs_1, devInfo, i, mediaElem;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0: return [4 /*yield*/, navigator.mediaDevices.enumerateDevices()];
                 case 1:
-                    audioDevs = _b.sent();
-                    devId = '';
-                    for (_i = 0, audioDevs_1 = audioDevs; _i < audioDevs_1.length; _i++) {
-                        devInfo = audioDevs_1[_i];
-                        if (devInfo.kind === 'audiooutput' && devInfo.deviceId === 'default') {
-                            devId = devInfo.deviceId;
-                        }
-                    }
-                    console.log(devId);
-                    console.log(audioElements);
-                    for (_a = 0, audioElements_1 = audioElements; _a < audioElements_1.length; _a++) {
-                        element = audioElements_1[_a];
-                        element.setSinkId(devId);
-                    }
-                    return [2 /*return*/];
+                    audioDevs = _a.sent();
+                    _i = 0, audioDevs_1 = audioDevs;
+                    _a.label = 2;
+                case 2:
+                    if (!(_i < audioDevs_1.length)) return [3 /*break*/, 7];
+                    devInfo = audioDevs_1[_i];
+                    if (!(devInfo.kind === 'audiooutput' && devInfo.deviceId === 'default')) return [3 /*break*/, 6];
+                    i = 0;
+                    _a.label = 3;
+                case 3:
+                    if (!(i < audioElements.length)) return [3 /*break*/, 6];
+                    mediaElem = audioElements[i];
+                    return [4 /*yield*/, mediaElem.setSinkId(devInfo.deviceId)];
+                case 4:
+                    _a.sent();
+                    _a.label = 5;
+                case 5:
+                    i++;
+                    return [3 /*break*/, 3];
+                case 6:
+                    _i++;
+                    return [3 /*break*/, 2];
+                case 7: return [2 /*return*/];
             }
         });
     });
