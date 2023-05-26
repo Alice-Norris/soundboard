@@ -3,19 +3,20 @@
   "version": "1.0.0",
   "description": "what it says",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "start": "electron ./dist/index.js"
+    "start": "electron ./src/index.js"
   },
   "author": "akneller",
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
+    "bootstrap": "^5.3.0-alpha3",
+    "bootstrap-icons": "^1.10.5",
+    "commonjs": "^0.0.1",
     "electron": "^24.3.1",
     "eslint": "^8.40.0",
+    "i": "^0.3.7",
+    "npm": "^9.6.7",
     "typescript": "^5.0.4"
   }
 }

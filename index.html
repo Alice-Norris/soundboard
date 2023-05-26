@@ -7,118 +7,185 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Soundboard</title>
   </head>
-  <body>
-    <audio></audio>
-    <div id="setSoundDiv"  class="hidden">
-      <label for="soundSel" id="soundSelLbl"></label>
-      <select name="soundSel" id="soundSel"></select>
-      <button name="selectSound" id="soundSelBtn">Select</button>
+  <body>    
+    <div id="modal" class="modal hidden">
+      <div id="modal-dialog" class="modal">
+        <form id="modal-form" class="modal">
+          <p class="modal">This will reset your soundboard! </p>
+          <p class="modal">All set sounds, shortcuts, and other data will be lost!</p>
+          <div id="modalBtnDiv" class="modal">
+            <button id="modal-reset" class="modal">Reset</button>
+            <button id="modal-cancel" class="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="settingsDiv">
+      <div id="controls">
+        <button class="iconBtn" id="settingsBtn">
+          <svg class="bi" width="32" height="32" fill="#AAAAAA">
+            <use xlink:href="./res/bootstrap-icons.svg#gear"/>
+          </svg>
+        </button>
+        <div>
+          <button class="iconBtn" id="volBtn">
+            <svg class="bi" width="32" height="32" fill="#AAAAAA">
+              <use xlink:href="./res/bootstrap-icons.svg#volume-up"/>
+            </svg>
+          </button>
+          <input type="range" min="0" max="100" value="50" id="volSlider">
+        </div>
+        <button class="textBtn hidden" id="resetBtn">
+          Reset
+        </button>
+      </div>
+      <div class="setSound hidden">
+        <label for="catSel" id="catSelLbl">Category:</label>
+        <select name="catSel" id="catSel"></select>
+        <label for="setSound" id="soundSelLbl">Sound:</label>
+        <select name="soundSel" id="soundSel"></select>
+        <button name="selectSound" id="soundSelBtn">Select</button>
+        <button name="cancel" id="cancel">Cancel</button>
+      </div>
     </div>
     <div id="soundboard">
       <div id="row1" class="row">
-        <div id="cell1" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound1"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell1" class="col1">
+          <button value="0" id="btn0" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell2" class="cell">
-          <audio controls>
-            <source src="res/sound/VOI_EU_01230.wav" type="media/wav" id="sound2"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell2" class="col2">
+          <button value="1" id="btn1" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell3" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound3"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell3" class="col3">
+          <button value="2" id="btn2" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell4" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound4"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell4" class="col4">
+          <button value="3" id="btn3" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
       </div>
       <div id="row2" class="row">
-        <div id="cell5" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound5"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell5" class="col1">
+          <button value="4" id="btn4" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell6" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound6"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell6" class="col2">
+          <button value="5" id="btn5" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell7" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound7"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell7" class="col3">
+          <button value="6" id="btn6" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell8" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound8"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell8" class="col4">
+          <button value="7" id="btn7" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
       </div>
       <div id="row3" class="row">
-        <div id="cell9" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound9"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell9" class="col1">
+          <button value="8" id="btn8" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell10" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound10"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell10" class="col2">
+          <button value="9" id="btn9" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell11" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound11"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell11" class="col3">
+          <button value="10" id="btn10" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell12" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound12"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell12" class="col4">
+          <button value="11" id="btn11" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
       </div>
       <div id="row4" class="row">
-        <div id="cell13" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound13"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell13" class="col1">
+          <button value="12" id="btn12" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell14" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound14"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell14" class="col2">
+          <button value="13" id="btn13" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell15" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound15"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell15" class="col3">
+          <button value="14" id="btn14" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
-        <div id="cell16" class="cell">
-          <audio>
-            <source src="" type="media/wav" id="sound16"></source>
-          </audio>
-          <button class="soundBtn">test</button>
+        <div id="cell16" class="col4">
+          <button value="15" id="btn15" class="soundBtn">
+            <div class="regular"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon hidden">
+              <use xlink:href="./res/bootstrap-icons.svg#trash"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
+    <script type="module" src="./src/renderer.js"></script>
   </body>
 </html>

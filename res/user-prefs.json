@@ -1,0 +1,27 @@
+{
+  "settings": {
+    "soundShortcuts": [
+      "Ctrl+Shift+0",
+      "Ctrl+Shift+1",
+      "Ctrl+Shift+2",
+      "Ctrl+Shift+3",
+      "Ctrl+Shift+4",
+      "Ctrl+Shift+5",
+      "Ctrl+Shift+6",
+      "Ctrl+Shift+7",
+      "Ctrl+Shift+8",
+      "Ctrl+Shift+9",
+      "Ctrl+Shift+10",
+      "Ctrl+Shift+11",
+      "Ctrl+Shift+12",
+      "Ctrl+Shift+13",
+      "Ctrl+Shift+14",
+      "Ctrl+Shift+15"
+    ],
+    "actionShortcuts": [
+      {"mute" : "Ctrl+Shift+M"},
+      {"volUp": "Ctrl+Shift+U"},
+      {"volDown": "Ctrl+Shift+D"}
+    ]
+  }
+}
