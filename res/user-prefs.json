@@ -10,18 +10,18 @@
       "Ctrl+Shift+6",
       "Ctrl+Shift+7",
       "Ctrl+Shift+8",
-      "Ctrl+Shift+9",
-      "Ctrl+Shift+10",
-      "Ctrl+Shift+11",
-      "Ctrl+Shift+12",
-      "Ctrl+Shift+13",
-      "Ctrl+Shift+14",
-      "Ctrl+Shift+15"
+      "Ctrl+Shift+Q",
+      "Ctrl+Shift+W",
+      "Ctrl+Shift+E",
+      "Ctrl+Shift+R",
+      "Ctrl+Shift+T",
+      "Ctrl+Shift+Y",
+      "Ctrl+Shift+U"
     ],
     "actionShortcuts": [
       {"mute" : "Ctrl+Shift+M"},
-      {"volUp": "Ctrl+Shift+U"},
-      {"volDown": "Ctrl+Shift+D"}
+      {"volUp": "Ctrl+Shift++"},
+      {"volDown": "Ctrl+Shift+-"}
     ]
   }
 }

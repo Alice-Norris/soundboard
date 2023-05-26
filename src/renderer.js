@@ -142,7 +142,6 @@ function setSettingsHandlers() {
   document.getElementById('resetBtn').addEventListener('click', resetBtnCallback);
   document.getElementById('volSlider').addEventListener('change', volSliderCallback);
   document.getElementById('modal-form').addEventListener('submit', modalClearCallback);
-  //document.getElementById('min').addEventListener('click', minBtnCallback);
 }
 
 // callback functions
@@ -156,7 +155,7 @@ async function soundBtnPlayCallback(event) {
 }
 
 function soundBtnSetCallback(event) {
-  event.srcElement.classList.add('editBtn');
+  event.srcElement.classList = 'soundBtn editBtn';
   localStorage.setItem('setBtn', event.srcElement.value);
   toggleSetSound();
 }
@@ -215,10 +214,11 @@ function selectBtnCallback() {
   cancelBtnCallback();
 }
 
-function cancelBtnCallback() {
+function cancelBtnCallback(event) {
   toggleSetSound();
   const btnNum = localStorage.getItem('setBtn');
-  document.getElementById('btn' + btnNum).classList.remove('editBtn');
+  document.getElementById('btn' + parseInt(btnNum)).classList = 'soundBtn setBtn';
+
 }
 
 function catSelCallback(event) {
@@ -236,14 +236,13 @@ function resetBtnCallback(event) {
 }
 
 function modalClearCallback(event) {
-  localStorage.removeItem('init');
-  localStorage.removeItem('vol');
-  localStorage.removeItem('sounds');
+  if (event.submitter.value === "reset") {
+    localStorage.removeItem('init');
+    localStorage.removeItem('vol');
+    localStorage.removeItem('sounds');
+  } else if (event.submitter.value === "cancel") {
+    return;
+  }
 }
 
-function minBtnCallback(event) {
-  console.log('min');
-  window.Messenger.send('message:fromRender', 'minimize');
-  
-}
 // end callbacks

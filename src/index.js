@@ -16,8 +16,12 @@ function createWindow() {
       preload: path.join(__dirname, "./preload.js"),
     },
   });
-
-  mainWindow.webContents.openDevTools();
+  
+  // enforce aspect ratio
+  mainWindow.setAspectRatio(1);
+  
+  //mainWindow.webContents.openDevTools();
+  
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "../index.html"));
 }
