@@ -207,17 +207,17 @@ function selectBtnCallback() {
   const data = getSoundDataBy('number', selVal);
   soundboard.input('setSound', data, index)
   const btn = document.getElementById('btn' + index);
+  btn.classList = 'soundBtn playBtn';
   btn.firstElementChild.innerText = data.contents;
-  btn.classList = 'soundBtn playBtn';;
   btn.removeEventListener('click', soundBtnSetCallback);
   btn.addEventListener('click', soundBtnPlayCallback);
-  cancelBtnCallback();
+  toggleSetSound();
 }
 
 function cancelBtnCallback(event) {
   toggleSetSound();
   const btnNum = localStorage.getItem('setBtn');
-  document.getElementById('btn' + parseInt(btnNum)).classList = 'soundBtn setBtn';
+  document.getElementById('btn' + btnNum).classList = 'soundBtn setBtn';
 
 }
 
